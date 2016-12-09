@@ -67,7 +67,11 @@ cartodb.filterWizard.filterModalView = {
                             'btn btn-default btn-all btn-xs',
                             columnElement);
       buttonAll.setAttribute('type', 'button');
-      buttonAll.textContent = 'Vælg alle';
+      if (self.controller.allIsChecked(column)) {
+        buttonAll.textContent = 'Fravælg alle'
+      } else {
+        buttonAll.textContent = 'Vælg alle';
+      }
       buttonAll.onclick = (function(column) {
         return function() {
           if (self.controller.allIsChecked(column)) {
